@@ -10,14 +10,14 @@ app.use(express.static('public'));
 // Use routes
 app.use('/api', routes);
 
-// Route for homepage
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
-});
-
 // Route for notes page
 app.get('/notes', (req, res) => {
   res.sendFile(__dirname + '/public/notes.html');
+});
+
+// Route for homepage
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 // Start the server
